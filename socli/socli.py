@@ -185,14 +185,14 @@ def helpman():
     Displays help
     :return:
     """
-    print_header("Stack Overflow command line client:")
+    print_header("Stack Exchange command line client:")
     print_green("\n\n\tUsage: socli [ Arguments ] < Search Query >\n\n")
     print_header("\n[ Arguments ] (optional):\n")
     print(" " + bold("--help or -h") + " : Displays this help")
     print(" " + bold("--query or -q") +
           " : If any of the following commands are used then you " \
           "must specify search query after the query argument")
-    print(" " + bold("--interactive or -i") + " : To search in stack overflow"
+    print(" " + bold("--interactive or -i") + " : To search in " + search_site +
                                               " and display the matching results. You can chose and "
                                               "browse any of the result interactively")
     print(" " + bold("--res or -r") +
