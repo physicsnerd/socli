@@ -15,6 +15,7 @@ import urwid
 from bs4 import BeautifulSoup
 import random
 import re
+from urllib.parse import urlparse
 
 # Global vars:
 DEBUG = False  # Set True for enabling debugging
@@ -64,6 +65,22 @@ else:
         sys.stdout.write(str)
         tempx = input()
         return tempx
+
+### Allows user to choose which stack exchange site to browse
+with open('sites.txt') as input_file:
+    sites = {
+        urlparse(url).netloc.split('.')[0]: url
+        for url in input_file
+    }
+
+print('Sites: ', ', '.join(sorted(sites)), '\n')
+
+while True:
+    search_site = input("Which site would you like to search?")
+    if search_site in sites:
+        url = sites[search_site]
+        url_search = url+'/search?q='
+        break
 
 
 ### Fixes windows active page code errors
